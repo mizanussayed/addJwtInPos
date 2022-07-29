@@ -1,0 +1,22 @@
+https://www.nuget.org/packages/FastReport.OpenSource
+
+https://www.nuget.org/packages/FastReport.OpenSource.Web
+
+https://www.nuget.org/packages/FastReport.OpenSource.Data.MsSql
+
+https://www.nuget.org/packages/FastReport.OpenSource.Export.PdfSimple
+
+
+npm install @auth0/angular-jwt
+
+
+USE [SolutionsDB]
+GO
+
+create proc getAllpurchase
+as
+begin
+
+select * from dbo.Purchases
+
+end
