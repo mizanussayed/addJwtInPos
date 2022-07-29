@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="07/28/2022 18:54:23" ReportInfo.Modified="07/28/2022 22:04:36" ReportInfo.CreatorVersion="2022.2.15.0">
+  <Styles Name="Green">
+    <Style Name="Title" Font="Arial, 12pt, style=Bold"/>
+    <Style Name="Header" Fill.Color="PaleGreen" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Group" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Data" Font="Arial, 10pt"/>
+    <Style Name="Footer" Fill.Color="PaleGreen" Font="Arial, 10pt"/>
+    <Style Name="EvenRows" Fill.Color="Honeydew" Font="Arial, 10pt"/>
+  </Styles>
+  <Dictionary>
+    <MsSqlDataConnection Name="posCon" ConnectionString="rijcmlqJUrEa/KIcQqhhcfnlqC6PIkK+hlXzQoLcLxvmyhrcAm1QzsPzJ+BeQzC76OcxnnIfmIPGpHbF8vSrLI7XL4vXHra63DqITLG9g5vtFc+3mMdMllrj6XlhZjUoV1Juwtd003t7soAE523a63yLWdUCnbd/MmYJd7fLgaQTzY7hYaYtJxdOjbLC0BDjbW/BMpWU3IepSlWLbgzKVHkMbz3GQ==" ConnectionStringExpression="[Conn]">
+      <TableDataSource Name="Purchases1" Alias="Purchases" DataType="System.Int32" Enabled="true" TableName="Purchases" SelectCommand="exec getAllpurchase;">
+        <Column Name="Id" DataType="System.Int32"/>
+        <Column Name="SupplierId" DataType="System.Int32"/>
+        <Column Name="PurchaseDate" DataType="System.DateTime"/>
+        <Column Name="Status" DataType="System.Int32"/>
+        <Column Name="InvoiceNo" DataType="System.String"/>
+        <Column Name="TotalQuantity" DataType="System.Decimal"/>
+        <Column Name="SubTotal" DataType="System.Decimal"/>
+        <Column Name="OtherCharges" DataType="System.Decimal"/>
+        <Column Name="GrandTotal" DataType="System.Decimal"/>
+        <Column Name="Note" DataType="System.String"/>
+        <CommandParameter Name="Parameter" DataType="22"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="Conn" DataType="System.String"/>
+    <Total Name="Total" Expression="[Purchases.GrandTotal]" Evaluator="Data1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8">
+      <TextObject Name="Text1" Width="718.2" Height="37.8" Dock="Fill" Text="Purchases List" Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold" Style="Title"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="41.8" Width="718.2" Height="28.35">
+      <TextObject Name="Text3" Width="66.15" Height="19.3" Fill.Color="PaleGreen" Text="Serial" Font="Arial, 10pt, style=Bold" Style="Header"/>
+      <TextObject Name="Text5" Left="56.7" Width="75.6" Height="18.9" Fill.Color="PaleGreen" Text="SupplierId" Font="Arial, 10pt, style=Bold" Style="Header"/>
+      <TextObject Name="Text7" Left="132.3" Width="56.7" Height="18.9" Fill.Color="PaleGreen" Text="Date" Font="Arial, 10pt, style=Bold" Style="Header"/>
+      <TextObject Name="Text9" Left="189" Width="56.7" Height="18.9" Fill.Color="PaleGreen" Text="Status" Font="Arial, 10pt, style=Bold" Style="Header"/>
+      <TextObject Name="Text11" Left="245.7" Width="85.05" Height="18.9" Fill.Color="PaleGreen" Text="Invoice No" Font="Arial, 10pt, style=Bold" Style="Header"/>
+      <TextObject Name="Text13" Left="330.75" Width="75.6" Height="18.9" Fill.Color="PaleGreen" Text="Total Qty" Font="Arial, 10pt, style=Bold" Style="Header"/>
+      <TextObject Name="Text15" Left="406.35" Width="85.05" Height="18.9" Fill.Color="PaleGreen" Text="Sub Total" Font="Arial, 10pt, style=Bold" Style="Header"/>
+      <TextObject Name="Text17" Left="491.4" Width="66.15" Height="18.9" Fill.Color="PaleGreen" Text="Other Charges" Font="Arial, 10pt, style=Bold" Style="Header"/>
+      <TextObject Name="Text19" Left="557.55" Width="85.05" Height="18.9" Fill.Color="PaleGreen" Text="Grand Total" Font="Arial, 10pt, style=Bold" Style="Header"/>
+      <TextObject Name="Text21" Left="642.6" Width="75.6" Height="18.9" Fill.Color="PaleGreen" Text="Note" Font="Arial, 10pt, style=Bold" Style="Header"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="74.15" Width="718.2" Height="19.85" EvenStyle="EvenRows" DataSource="Purchases1">
+      <TextObject Name="Text2" Width="56.7" Height="19.85" Text="[Purchases.Id]" Font="Arial, 10pt" Style="Data"/>
+      <TextObject Name="Text4" Left="66.15" Width="47.25" Height="18.9" Text="[Purchases.SupplierId]" Font="Arial, 10pt" Style="Data"/>
+      <TextObject Name="Text6" Left="132.3" Width="75.6" Height="18.9" Text="[Purchases.PurchaseDate]" Format="Date" Format.Format="MM/dd/yy" Font="Arial, 10pt" Style="Data"/>
+      <TextObject Name="Text8" Left="198.45" Width="47.25" Height="18.9" Text="[Purchases.Status]" Font="Arial, 10pt" Style="Data"/>
+      <TextObject Name="Text10" Left="245.7" Width="85.05" Height="18.9" Text="[Purchases.InvoiceNo]" Font="Arial, 10pt" Style="Data"/>
+      <TextObject Name="Text12" Left="330.75" Width="75.6" Height="18.9" Text="[Purchases.TotalQuantity]" Font="Arial, 10pt" Style="Data"/>
+      <TextObject Name="Text14" Left="406.35" Width="85.05" Height="18.9" Text="[Purchases.SubTotal]" Format="Currency" Format.UseLocale="true" Format.DecimalDigits="2" Font="Arial, 10pt" Style="Data"/>
+      <TextObject Name="Text16" Left="491.4" Width="66.15" Height="18.9" Text="[Purchases.OtherCharges]" Format="Currency" Format.UseLocale="true" Format.DecimalDigits="2" Font="Arial, 10pt" Style="Data"/>
+      <TextObject Name="Text18" Left="557.55" Width="66.15" Height="18.9" Text="[Purchases.GrandTotal]" Format="Currency" Format.UseLocale="true" Format.DecimalDigits="2" Font="Arial, 10pt" Style="Data"/>
+      <TextObject Name="Text20" Left="642.6" Width="66.15" Height="18.9" Text="[Purchases.Note]" Font="Arial, 10pt" Style="Data"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="98" Width="718.2" Height="37.8"/>
+    <PageFooterBand Name="PageFooter1" Top="139.8" Width="718.2" Height="18.9" Fill.Color="PaleGreen" Style="Footer">
+      <TextObject Name="Text22" Width="718.2" Height="18.9" Dock="Fill" Fill.Color="PaleGreen" Text="[Total]" HorzAlign="Center" Font="Arial, 10pt" Style="Footer"/>
+      <TextObject Name="Text23" Left="236.25" Width="94.5" Height="18.9" Text="Sum of Grand total" HorzAlign="Center" Font="Arial, 10pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>
