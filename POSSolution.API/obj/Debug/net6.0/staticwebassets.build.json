@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dZ6UBN6m8/wKFabqr5qRprt61HVPP0w9Sp7LcY5fAMo=",
+  "Hash": "PhNLYLV/CBruRbqX4XG34jaf0M4skfjoitkjdMUqCeU=",
   "Source": "POSSolution.API",
   "BasePath": "_content/POSSolution.API",
   "Mode": "Default",
@@ -32,6 +32,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Reports\\purchase.frx"
+    },
+    {
+      "Identity": "E:\\POSSoftware\\POSSolution.API\\wwwroot\\Reports\\Untitled.frx",
+      "SourceId": "POSSolution.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\POSSoftware\\POSSolution.API\\wwwroot\\",
+      "BasePath": "_content/POSSolution.API",
+      "RelativePath": "Reports/Untitled.frx",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Reports\\Untitled.frx"
     }
   ]
 }

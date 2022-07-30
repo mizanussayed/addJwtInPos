@@ -4,11 +4,12 @@ import { Router } from "@angular/router";
 import { NgForm } from '@angular/forms';
 //import configurl from '../../assets/config/config.json';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { ToastrService } from 'ngx-toastr';
+import { NgbToast } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'login',
-  templateUrl: './login.component.html'
+  templateUrl: 'login-component.html',
+  styleUrls: ['login-component.css']
 })
 export class LoginComponent {
   invalidLogin?: boolean;
@@ -17,7 +18,7 @@ export class LoginComponent {
   //url = configurl.apiServer.url + '/api/authentication/';
 
   constructor(private router: Router, private http: HttpClient,private jwtHelper : JwtHelperService,
-    private toastr: ToastrService) { }
+    private toastr: NgbToast) { }
 
   public login = (form: NgForm) => {
     const credentials = JSON.stringify(form.value);
@@ -29,8 +30,8 @@ export class LoginComponent {
       const token = (<any>response).token;
       localStorage.setItem("jwt", token);
       this.invalidLogin = false;
-      this.toastr.success("Logged In successfully");
-      this.router.navigate(["/product"]);
+      this.toastr.show;
+      this.router.navigate(["/"]);
     }, err => {
       this.invalidLogin = true;
     });

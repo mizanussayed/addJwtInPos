@@ -42,9 +42,27 @@ public class ReportController : ControllerBase
       web.Report.Prepare();
       web.Report.Export(new PDFSimpleExport(), stream);
       stream.Position = 0;
-      return File(stream, "application/zip", "purchase.pdf");
+      return File(stream, "application/pdf", "purchase.pdf");
       //var add =  File(stream, "application/pdf", "purchase.pdf");
 
       //return Ok(add);
+   }
+
+
+   [HttpGet]
+   [Route("allCity")]
+   public IActionResult getAllCity(){
+      WebReport web = new WebReport();
+      MsSqlDataConnection mscon = new MsSqlDataConnection();
+      var path = $"{this._env.WebRootPath}\\Reports\\city.frx"; 
+      web.Report.Load(path);
+      mscon.ConnectionString = this._config.GetConnectionString("PosSolutionConnection");
+      web.Report.SetParameterValue("Conn", mscon.ConnectionString);
+
+      Stream stream = new MemoryStream();
+      web.Report.Prepare();
+      web.Report.Export(new PDFSimpleExport(), stream);
+      stream.Position = 0;
+      return File(stream, "application/pdf", "city.pdf");
    }
 }

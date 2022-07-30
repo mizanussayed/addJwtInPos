@@ -31,17 +31,21 @@ import { UnitComponent } from './Modules/Product/unit/unit.component';
 import { PurchaseDetailsComponent } from './Modules/Purchase/purchase-details.component';
 import { PurchaseFormComponent } from './Modules/Purchase/purchase-form/purchase-form.component';
 import { PurchaseComponent } from './Modules/Purchase/purchase.component';
-import { PurchaseReturnFormComponent } from './Modules/Purchase/PurchaseReturn/purchase-return-form/purchase-return-form.component';
-import { PurchaseReturnComponent } from './Modules/Purchase/PurchaseReturn/purchasereturn.component';
 import { SalesFormComponent } from './Modules/Sales/sales-form/sales-form.component';
 import { SalesComponent } from './Modules/Sales/sales.component';
-import { SalesReturnFormComponent } from './Modules/Sales/SalesReturn/sales-return-form/sales-return-form.component';
-import { SalesReturnComponent } from './Modules/Sales/SalesReturn/sales-return.component';
+
 
 import { ErrorComponent } from './Shared/layout/error/error.component';
 import { LayoutComponent } from './Shared/layout/layout.component';
 import { JwtModule } from "@auth0/angular-jwt";
 import { AuthGuard } from './Shared/guard/auth-guard';
+import { LoginComponent } from './Shared/authentication/login/login-component';
+import { RegisterComponent } from './Shared/authentication/Register/register-component';
+import { ReportComponent } from './Modules/report/report.component';
+import { SalesReturnComponent } from './Modules/sales-return/sales-return.component';
+import { SalesReturnFormComponent } from './Modules/sales-return/sales-return-form/sales-return-form.component';
+import { PurchaseReturnComponent } from './Modules/purchase-return/purchasereturn.component';
+import { PurchaseReturnFormComponent } from './Modules/purchase-return/purchase-return-form/purchase-return-form.component';
 
 
 
@@ -104,11 +108,14 @@ const routes: Routes = [
     {path: "user/form/:id", component: UserFormComponent }, 
     {path: "role", component: RoleComponent }, 
     {path: "role/form", component: RoleFormComponent },
-    {path: "role/form/:id", component: RoleFormComponent }
+    {path: "role/form/:id", component: RoleFormComponent },
+    {path: "report", component: ReportComponent }
   ]},
 
   
-  {path: "pos", component: PosComponent},
+  {path: "login", component: LoginComponent},
+  {path: "register", component: RegisterComponent},
+  {path: "pos", component: PosComponent, canActivate: [AuthGuard]},
   {path: "**", component: ErrorComponent}
 ];
 

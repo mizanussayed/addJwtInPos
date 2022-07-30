@@ -166,3 +166,17 @@ sales Return:
  }
 
 
+
+npm install @auth0/angular-jwt
+
+
+USE [SolutionsDB]
+GO
+
+create proc getAllpurchase
+as
+begin
+
+select * from dbo.Purchases
+
+end

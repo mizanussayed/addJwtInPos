@@ -29,6 +29,7 @@ export class LayoutComponent implements OnInit {
 
   public logOut = () => {
     localStorage.removeItem("jwt");
+    this.router.navigate(["/login"]);
   }
 
   
